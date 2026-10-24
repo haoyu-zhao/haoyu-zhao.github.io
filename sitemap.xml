@@ -9,8 +9,18 @@
 
 <url>
   <loc>https://haoyu-zhao.github.io/</loc>
-  <lastmod>2024-09-13T06:23:00+00:00</lastmod>
+  <lastmod>2026-10-24</lastmod>
   <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://haoyu-zhao.github.io/publications/</loc>
+  <lastmod>2026-10-24</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://haoyu-zhao.github.io/teaching/</loc>
+  <lastmod>2026-10-24</lastmod>
+  <priority>0.60</priority>
 </url>
 <url>
   <loc>https://haoyu-zhao.github.io/LLM-Optic.github.io/</loc>

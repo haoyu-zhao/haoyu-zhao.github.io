@@ -1,0 +1,28 @@
+type = "card"
+title = "Honors & Awards"
+
+[[items]]
+title = "ISEDA Honorable Mention Paper Award"
+date = "2024"
+
+[[items]]
+title = "ICCV Best Paper Final List"
+date = "2023"
+content = "Top 0.2%"
+
+[[items]]
+title = "HKUST Postgraduate Studentship"
+date = "2022\u201324"
+
+[[items]]
+title = "Outstanding Undergraduate Publication Award"
+date = "2021"
+
+[[items]]
+title = "Youth Innovation Fund of Xiamen"
+date = "2020\u201321"
+
+[[items]]
+title = "Academic Excellence Scholarship"
+date = "2017\u201321"
+content = "2017\u201318, 2019\u201320, 2020\u201321"

@@ -1,0 +1,7 @@
+UCL favicon: https://www.ucl.ac.uk/favicon.ico
+Downloaded from the official UCL website on 2026-10-24; original bytes preserved.
+
+X, Xiaohongshu and Hugging Face icon paths: Simple Icons
+https://github.com/simple-icons/simple-icons
+License: CC0-1.0, https://creativecommons.org/publicdomain/zero/1.0/
+The brand marks belong to their respective owners.

@@ -1,0 +1,50 @@
+[site]
+title = "Haoyu Zhao"
+description = "Ph.D. student at University College London, researching LLM-based agents and agent harnesses for Continual Learning and Recursive Self-Improvement."
+favicon = "/ucl-favicon.ico"
+last_updated = "October 2026"
+pages = ["publications", "teaching"]
+
+[author]
+name = "Haoyu Zhao"
+name_zh = "赵皓宇"
+title = "Ph.D. Student"
+institution = "University College London"
+avatar = "/images/haoyu-coast.jpg"
+
+[social]
+email = "haoyu-zhao@outlook.com"
+location = "London, United Kingdom"
+location_url = "https://www.google.com/maps/search/?api=1&query=University+College+London"
+location_details = ["UCL Centre for Artificial Intelligence", "Department of Computer Science", "University College London", "London, United Kingdom"]
+google_scholar = "https://scholar.google.com/citations?hl=en&user=4zjV4oUAAAAJ"
+github = "https://github.com/haoyu-zhao"
+linkedin = "https://www.linkedin.com/in/haoyu-zhao-73101931b/?isSelfProfile=true"
+twitter = "https://x.com/hyzhao23805?s=11"
+xiaohongshu = "https://xhslink.cn/o/9qrU5oK9Fzc"
+huggingface = "https://huggingface.co/HaoyuZhao"
+
+[features]
+enable_likes = true
+enable_one_page_mode = false
+
+[i18n]
+enabled = false
+
+[[navigation]]
+title = "About"
+type = "section"
+target = "about"
+href = "/#about"
+
+[[navigation]]
+title = "News"
+type = "section"
+target = "news"
+href = "/#news"
+
+[[navigation]]
+title = "Selected Publications"
+type = "section"
+target = "selected-publications"
+href = "/#selected-publications"
