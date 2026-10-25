@@ -57,7 +57,8 @@ export function getTomlContent<T>(filename: string, locale?: string): T | null {
   }
 
   try {
-    return parse(content) as unknown as T;
+    // Normalize nested TOML tables for the React server/client boundary.
+    return structuredClone(parse(content)) as unknown as T;
   } catch (error) {
     console.error(`Error parsing TOML file ${filename}:`, error);
     return null;

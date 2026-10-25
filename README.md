@@ -35,6 +35,18 @@ The publishing script preserves legacy image URLs, domain configuration, and the
 Google verification file. Local previews, browser screenshots, and dependencies
 are excluded from version control.
 
+## Dependency maintenance
+
+Run `npm audit` after dependency changes, then rebuild and check the desktop,
+mobile, and dark-mode pages, including the Abs/Bib toggles and citation copying.
+The publishing script replaces `_next` so obsolete bundles are removed.
+
+`bibtex-parse-js` is pinned to 0.0.23 because 0.0.24 includes an obsolete AVA/Babel
+test toolchain as runtime dependencies. All seven publications produce the same
+parsed metadata with 0.0.23. Tailwind stays on 4.1.10 to preserve the approved
+design. The PostCSS override supplies security fixes for Next.js's pinned older
+PostCSS; review this override when upgrading Next.js.
+
 The site is adapted from [Innse's homepage](https://github.com/Innse/innse.github.io)
 and PRISM. The original MIT license is retained in `LICENSE`; font and icon
 licenses are included under `public/fonts/` and `public/icons/`.

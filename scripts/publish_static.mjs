@@ -1,4 +1,4 @@
-import { cpSync, existsSync, readdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,8 +21,23 @@ const entries = readdirSync(output);
 for (const name of entries) {
   if (protectedNames.has(name)) throw new Error(`Export would overwrite protected file: ${name}`);
 }
+// Replace generated bundles so old framework versions are no longer published.
+if (entries.includes('_next')) {
+  rmSync(path.join(root, '_next'), { recursive: true, force: true });
+}
 for (const name of entries) {
-  cpSync(path.join(output, name), path.join(root, name), { recursive: true });
+  cpSync(path.join(output, name), path.join(root, name), {
+    recursive: true,
+    filter: (source, destination) => {
+      if (statSync(source).isFile() && existsSync(destination) && statSync(destination).isFile()) {
+        // Exported photos may be read-only. Keep identical assets, and replace
+        // changed files instead of attempting to write into a read-only file.
+        if (readFileSync(source).equals(readFileSync(destination))) return false;
+        rmSync(destination);
+      }
+      return true;
+    },
+  });
 }
 writeFileSync(path.join(root, '.nojekyll'), '');
 console.log('Static pages copied to the repository root for GitHub Pages.');
