@@ -30,7 +30,8 @@ def check_publication_details(browser, label):
       panels:[...card.querySelectorAll('[data-publication-panel]')].map(p=>({kind:p.dataset.publicationPanel,hidden:p.hidden,text:p.querySelector('[data-bibtex-code]')?.textContent || p.textContent})),
       buttons:[...card.querySelectorAll('[data-detail]')].map(b=>({kind:b.dataset.detail,expanded:b.getAttribute('aria-expanded'),controls:!!document.getElementById(b.getAttribute('aria-controls'))}))
     }))""")
-    assert len(cards) == 7, cards
+    assert len(cards) == len(citations), cards
+    assert {card['id'] for card in cards} == set(citations), cards
     original_url = browser.evaluate('location.href')
     for card in cards:
         assert len(card['panels']) == len(card['buttons']) == 2, card
@@ -49,8 +50,8 @@ def check_publication_details(browser, label):
                 assert clipboard_text(browser) == citations[card['id']]['bibtex'], 'Clipboard must contain only this paper’s exact citation'
         assert state == [True, True], (card['id'], state)
 
-    first = '[data-publication-id="memento3"]'
-    second = '[data-publication-id="see-control"]'
+    first = '[data-publication-id="cle"]'
+    second = '[data-publication-id="memento3"]'
     browser.evaluate(f'document.querySelector(\'{first} [data-detail="abstract"]\').focus()')
     browser.call('Page.bringToFront')
     browser.call('Input.dispatchKeyEvent', type='keyDown', key='Enter', code='Enter', windowsVirtualKeyCode=13, text='\r', unmodifiedText='\r')
@@ -79,14 +80,14 @@ def check_publication_details(browser, label):
       window.__execOriginal = document.execCommand;
       navigator.clipboard.writeText = () => Promise.reject(new DOMException('Denied for test', 'NotAllowedError')); true""")
     assert click_copy(browser, first) == 'success', 'Clipboard fallback failed'
-    assert clipboard_text(browser) == citations['memento3']['bibtex']
+    assert clipboard_text(browser) == citations['cle']['bibtex']
     # If neither API works, report failure honestly and allow retry.
     browser.evaluate('document.execCommand = () => false; true')
     assert click_copy(browser, first) == 'error'
     assert browser.evaluate(f'!document.querySelector(\'{first} [data-copy-error]\').hidden')
     browser.evaluate('navigator.clipboard.writeText = window.__copyOriginal; document.execCommand = window.__execOriginal; true')
     assert click_copy(browser, first) == 'success'
-    assert clipboard_text(browser) == citations['memento3']['bibtex']
+    assert clipboard_text(browser) == citations['cle']['bibtex']
     browser.screenshot(f'{label}-bibtex-copied.png')
     assert browser.evaluate('location.href') == original_url, 'Details must not navigate or change the URL'
     assert not browser.evaluate('document.documentElement.scrollWidth > innerWidth'), 'Desktop citation overflow'
@@ -103,4 +104,4 @@ def check_publication_details(browser, label):
     time.sleep(.15)
     assert browser.evaluate('document.querySelectorAll("[data-publication-panel]:not([hidden])").length') == 0
     browser.evaluate('window.scrollTo({top:0,behavior:"instant"})')
-    print(label, 'All 7 Abs/Bib toggles, exact clipboard contents, copy fallback/failure/retry, keyboard activation, dark mode and responsive layout passed.', flush=True)
+    print(label, f'All {len(cards)} Abs/Bib toggles, exact clipboard contents, copy fallback/failure/retry, keyboard activation, dark mode and responsive layout passed.', flush=True)

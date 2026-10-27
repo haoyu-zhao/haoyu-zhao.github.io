@@ -11,6 +11,7 @@ import urllib.request
 from review_preview import Browser, QuietHandler, ROOT, REVIEW
 
 EXPECTED_NEWS = [
+    'https://arxiv.org/abs/2610.33956', 'https://haoyu-zhao.github.io/CLE/', 'https://huggingface.co/papers/2610.33956',
     'https://arxiv.org/abs/2610.11794',
     'https://huggingface.co/papers/2610.11794', 'https://www.qbitai.com/2026/10/502654.html',
     'https://arxiv.org/abs/2610.11794',
@@ -72,8 +73,8 @@ def check_home(browser, label):
     assert 'Research' not in result['profile']
     assert result['bodyFont'] == {'family':'Roboto, sans-serif', 'weight':'400', 'size':'16px', 'lineHeight':'24px'}, result['bodyFont']
     assert result['newsLinks'] == EXPECTED_NEWS, result['newsLinks']
-    assert len(result['papers']) == 7 and not result['grouped']
-    for actual, expected in zip(result['papers'], ['Memento 3:', 'See-Control:', 'AccidentBench:', 'GaussianProperty:', 'LLM-Optic:', 'Ref-NeuS:', 'Multi-objective Optimization']):
+    assert len(result['papers']) == 8 and not result['grouped']
+    for actual, expected in zip(result['papers'], ['Continual Learning Exam:', 'Memento 3:', 'See-Control:', 'AccidentBench:', 'GaussianProperty:', 'LLM-Optic:', 'Ref-NeuS:', 'Multi-objective Optimization']):
         assert actual.startswith(expected), actual
     assert result['mediaLinks'] == [
         {'label':'Media Coverage · 量子位','href':'https://www.qbitai.com/2026/10/502654.html'},

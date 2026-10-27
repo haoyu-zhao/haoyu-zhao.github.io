@@ -1,5 +1,9 @@
 [[news]]
 date = "2026-10"
+content = "[CLE](https://arxiv.org/abs/2610.33956): We released Continual Learning Exam, a benchmark for experience-driven continual learning in LLM agents. Explore the [project page](https://haoyu-zhao.github.io/CLE/) and find the paper on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.33956)."
+
+[[news]]
+date = "2026-10"
 content = "[Memento 3](https://arxiv.org/abs/2610.11794) has been featured on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.11794) and covered by [量子位 (QbitAI)](https://www.qbitai.com/2026/10/502654.html)."
 
 [[news]]

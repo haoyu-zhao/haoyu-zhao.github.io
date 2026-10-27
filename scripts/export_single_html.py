@@ -162,17 +162,17 @@ with tempfile.TemporaryDirectory(prefix='haoyu-html-export-') as profile:
         (REVIEW/'requested-updates-checks.json').write_text(json.dumps(checks, ensure_ascii=False, indent=2))
         assert browser.evaluate('document.querySelector("h1").innerText') == 'Haoyu Zhao'
         assert browser.evaluate('[...document.images].every(i=>i.complete && i.naturalWidth>0)')
-        assert browser.evaluate('document.querySelectorAll("h3 a").length') == 7
+        assert browser.evaluate('document.querySelectorAll("h3 a").length') == 8
         browser.screenshot('standalone-html.png')
         browser.evaluate('location.hash="#/publications"')
         time.sleep(.3)
-        assert browser.evaluate('document.querySelectorAll("[data-publication]").length') == 7
+        assert browser.evaluate('document.querySelectorAll("[data-publication]").length') == 8
         check_publication_details(browser, 'html-full-publications')
-        assert browser.evaluate('document.querySelector("[data-publication]").dataset.publicationId') == 'memento3'
+        assert browser.evaluate('document.querySelector("[data-publication]").dataset.publicationId') == 'cle'
         assert browser.evaluate('document.querySelector("[data-publication]").dataset.year') == '2026'
         browser.evaluate("""document.querySelector('[data-filter="year"][data-value="2026"]').click()""")
-        assert browser.evaluate('document.querySelectorAll("[data-publication]:not([hidden])").length') == 1
-        assert browser.evaluate('document.querySelector("[data-publication]:not([hidden])").dataset.publicationId') == 'memento3'
+        assert browser.evaluate('document.querySelectorAll("[data-publication]:not([hidden])").length') == 2
+        assert browser.evaluate('document.querySelector("[data-publication]:not([hidden])").dataset.publicationId') == 'cle'
         browser.evaluate('document.querySelector("[data-filter=year][data-value=all]").click()')
         browser.evaluate('const input=document.querySelector("[data-search]"); input.value="See-Control"; input.dispatchEvent(new Event("input",{bubbles:true}))')
         assert browser.evaluate('document.querySelectorAll("[data-publication]:not([hidden])").length') == 1

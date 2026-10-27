@@ -124,7 +124,7 @@ export default function SelectedPublications({ publications, title, id, googleSc
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center px-2 py-1 rounded text-[13px] font-medium bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
                                 >
-                                    Project
+                                    Project Page
                                 </a>
                             )}
                             {pub.media && (
