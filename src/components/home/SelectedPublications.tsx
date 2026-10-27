@@ -114,7 +114,7 @@ export default function SelectedPublications({ publications, title, id, googleSc
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center px-2 py-1 rounded text-[13px] font-medium bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
                                 >
-                                    Hugging Face
+                                    Daily Paper
                                 </a>
                             )}
                             {pub.project && (
@@ -145,6 +145,16 @@ export default function SelectedPublications({ publications, title, id, googleSc
                                     className="inline-flex items-center px-2 py-1 rounded text-[13px] font-medium bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
                                 >
                                     Code
+                                </a>
+                            )}
+                            {pub.dataset && (
+                                <a
+                                    href={pub.dataset}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-2 py-1 rounded text-[13px] font-medium bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                >
+                                    Dataset
                                 </a>
                             )}
                             {pub.weights && (

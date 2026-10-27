@@ -91,6 +91,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       eprint: tags.eprint,
       url: tags.url,
       code: tags.code,
+      dataset: tags.dataset,
       project: tags.project,
       media: tags.media,
       mediaLabel: cleanBibTeXString(tags.media_label),
@@ -107,7 +108,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       sourceOrder: index,
 
       // Prefer publisher/arXiv citations; presentation-only fields stay out of BibTeX.
-      bibtex: details?.bibtex || reconstructBibTeX(entry, ['selected', 'display_order', 'preview', 'description', 'abstract', 'keywords', 'code', 'project', 'media', 'media_label', 'huggingface', 'demo', 'benchmark', 'weights']),
+      bibtex: details?.bibtex || reconstructBibTeX(entry, ['selected', 'display_order', 'preview', 'description', 'abstract', 'keywords', 'code', 'dataset', 'project', 'media', 'media_label', 'huggingface', 'demo', 'benchmark', 'weights']),
     };
 
     // Clean up undefined fields

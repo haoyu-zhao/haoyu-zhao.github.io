@@ -28,6 +28,7 @@ export interface Publication {
   pmid?: string;
   url?: string;
   code?: string;
+  dataset?: string;
   project?: string;
   media?: string;
   mediaLabel?: string;
