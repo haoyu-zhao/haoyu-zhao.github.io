@@ -96,7 +96,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     src={`/images/${pub.preview}`}
                                     alt={pub.title}
                                     fill
-                                    className={pub.id === 'memento3' ? 'object-contain bg-white' : pub.preview === 'oneslide.png' ? 'object-contain' : 'object-cover'}
+                                    className={['tal', 'memento3'].includes(pub.id) ? 'object-contain bg-white' : pub.preview === 'oneslide.png' ? 'object-contain' : 'object-cover'}
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                             </div>

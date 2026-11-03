@@ -1,4 +1,8 @@
 [[news]]
+date = "2026-11"
+content = "[TAL](https://arxiv.org/abs/2611.01460): We released Tutorial Agentic Learning, enabling LLM agents to learn from tutorial videos without parameter updates. Find the paper on [Hugging Face Daily Papers](https://huggingface.co/papers/2611.01460)."
+
+[[news]]
 date = "2026-10"
 content = "[CLE](https://arxiv.org/abs/2610.33956): We released Continual Learning Exam, a benchmark for experience-driven continual learning in LLM agents. Explore the [project page](https://haoyu-zhao.github.io/CLE/) and find the paper on [Hugging Face Daily Papers](https://huggingface.co/papers/2610.33956)."
 
